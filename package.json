@@ -7,7 +7,7 @@
     "pptxgenjs-mcp-server": "./dist/index.js"
   },
   "scripts": {
-    "build": "tsc && chmod +x dist/index.js",
+    "build": "tsc",
     "dev": "tsx src/index.ts",
     "prepare": "npm run build",
     "inspector": "npx @modelcontextprotocol/inspector dist/index.js"
