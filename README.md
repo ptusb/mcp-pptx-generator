@@ -29,10 +29,57 @@ This is a "Bridge" (MCP Server). It connects the thinking power of an AI (Claude
 ## 🙋 Potential Interview/Boss Questions (Ready-to-Answer)
 
 **Q: "Why did you use MCP instead of just a Python script?"**
+
 - **A:** *"MCP is the industry standard for 'Agentic' AI. By using MCP, I allow the AI to have real-time control over the computer's tools. It’s more scalable and allows for a conversational workflow where the AI can iterate on the slides as we talk."*
 
 **Q: "Can this handle custom company branding?"**
+
 - **A:** *"Yes. The server is designed to accept custom hex colors, layouts, and logos, ensuring that every automated deck follows corporate identity guidelines."*
+
+---
+
+## ⚙️ Implementation Guide (Step-by-Step)
+
+### **1. Prerequisites**
+
+- Install **Node.js** (v18+)
+- Install **Claude Desktop** (or any MCP-compatible host).
+
+### **2. Installation**
+
+```bash
+git clone https://github.com/ptusb/mcp-pptx-generator.git
+cd mcp-pptx-generator
+npm install
+npm run build
+```
+
+### **3. Configuration**
+
+Open your `claude_desktop_config.json` and add:
+
+```json
+{
+  "mcpServers": {
+    "pptx-generator": {
+      "command": "node",
+      "args": ["C:\\path\\to\\mcp-pptx-generator\\dist\\index.js"]
+    }
+  }
+}
+```
+
+*Replace `C:\\path\\to\\` with your actual folder path.*
+
+---
+
+## 🎬 Demonstration Guide (How to see it in Action)
+
+1. **Launch Claude Desktop**: Ensure the "Hammer" icon (Tools) shows `pptx-generator`.
+2. **Input Prompt**: Type the following into Claude:
+    > *"Create a 3-slide presentation about the benefits of AI Automation in 2026. Use a professional blue theme and save it as 'AI_Benefits.pptx' to my Desktop."*
+3. **Observation**: You will see Claude calling the `create_presentation`, `add_slide`, and `add_text` tools in order.
+4. **Verification**: Check your Desktop. A fully formatted `.pptx` file will be waiting for you.
 
 ---
 
